@@ -1,0 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+🔹 Open scripts/app.js and add:
+
+console.log("E-Commerce Website Loaded");
