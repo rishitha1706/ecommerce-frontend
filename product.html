@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <h2>ShopEase</h2>
+        </div>
+
+    </header>
+
+    <section class="product-details">
+
+        <!-- Product Image -->
+
+        <div class="product-image">
+
+            <img id="detail-image" src="" alt="">
+
+        </div>
+
+        <!-- Product Info -->
+
+        <div class="product-info">
+
+            <h1 id="detail-title"></h1>
+
+            <h2 id="detail-price"></h2>
+
+            <p id="detail-description"></p>
+
+            <!-- Size Selection -->
+
+            <div class="variation">
+
+                <label>Select Size:</label>
+
+                <select id="size-select">
+
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+
+                </select>
+
+            </div>
+
+            <!-- Color Selection -->
+
+            <div class="variation">
+
+                <label>Select Color:</label>
+
+                <select id="color-select">
+
+                    <option>Black</option>
+                    <option>White</option>
+                    <option>Blue</option>
+
+                </select>
+
+            </div>
+
+            <!-- Quantity -->
+
+            <div class="quantity-box">
+
+                <button id="decrease">-</button>
+
+                <span id="quantity">1</span>
+
+                <button id="increase">+</button>
+
+            </div>
+
+            <!-- Total Price -->
+
+            <h3>Total: $<span id="total-price"></span></h3>
+
+            <button id="add-cart-btn">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </section>
+
+    <script src="scripts/product.js"></script>
+
+</body>
+
+</html>

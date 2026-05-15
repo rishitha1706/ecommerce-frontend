@@ -1,6 +1,290 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    padding: 15px 30px;
+    flex-wrap: wrap;
+}
+
+.logo h2 {
+    color: #f8b400;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f8b400;
+}
+
+.search-box input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.cart {
+    font-size: 22px;
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 12px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(to right, #111, #333);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     text-align: center;
+}
+
+.hero h1 {
+    font-size: 60px;
+}
+
+.hero p {
+    font-size: 24px;
+}
+
+.hero button {
+    padding: 12px 30px;
+    border: none;
+    background-color: #f8b400;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Products Section */
+
+.products-section {
+    padding: 50px 20px;
+}
+
+.products-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Hide Initially */
+
+.hidden {
+    display: none;
+}
+
+/* Product Grid */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Product Card */
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    color: green;
+    margin-bottom: 10px;
+}
+
+.product-card small {
+    color: #555;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.product-card button {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #f8b400;
+    color: black;
+}
+
+/* Product Link */
+
+.product-link {
+    text-decoration: none;
+    color: black;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .search-box {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+}
+
+/* Image Zoom Effect */
+
+.product-image {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.product-image img {
+    transition: transform 0.4s ease;
+    cursor: zoom-in;
+}
+
+.product-image img:hover {
+    transform: scale(1.2);
+}
+
+/* Product Variations */
+
+.variation {
+    margin-bottom: 20px;
+}
+
+.variation label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.variation select {
+    padding: 10px;
+    width: 200px;
+}
+
+/* Quantity Box */
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.quantity-box button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #222;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.quantity-box span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Image Zoom */
+
+.product-image {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.product-image img {
+    transition: transform 0.4s ease;
+    cursor: zoom-in;
+}
+
+.product-image img:hover {
+    transform: scale(1.2);
 }
