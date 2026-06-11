@@ -1,6 +1,8 @@
 /* Get Product ID */
 
-const params = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(
+    window.location.search
+);
 
 const productId = params.get("id");
 
@@ -8,53 +10,63 @@ const productId = params.get("id");
 
 let quantity = 1;
 
-const quantityText = document.getElementById("quantity");
+const quantityText =
+    document.getElementById("quantity");
 
 const totalPriceText =
     document.getElementById("total-price");
 
 /* Fetch Product */
 
-fetch(`https://fakestoreapi.com/products/${productId}`)
+fetch(
+    `https://fakestoreapi.com/products/${productId}`
+)
 
 .then(response => response.json())
 
 .then(product => {
 
-   const detailImage =
-    document.getElementById("detail-image");
+    const detailImage =
+        document.getElementById(
+            "detail-image"
+        );
 
-detailImage.src = product.image;
+    detailImage.src = product.image;
 
-detailImage.loading = "lazy";
+    document.getElementById(
+        "detail-title"
+    ).textContent = product.title;
 
-detailImage.decoding = "async";
+    document.getElementById(
+        "detail-price"
+    ).textContent = `$${product.price}`;
 
-    document.getElementById("detail-title").textContent =
-        product.title;
-
-    document.getElementById("detail-description").textContent =
-        product.description;
+    document.getElementById(
+        "detail-description"
+    ).textContent = product.description;
 
     let basePrice = product.price;
 
-    totalPriceText.textContent = basePrice.toFixed(2);
+    totalPriceText.textContent =
+        basePrice.toFixed(2);
 
-    /* Quantity Increase */
+    /* Increase Quantity */
 
     document.getElementById("increase")
         .addEventListener("click", () => {
 
             quantity++;
 
-            quantityText.textContent = quantity;
+            quantityText.textContent =
+                quantity;
 
             totalPriceText.textContent =
-                (basePrice * quantity).toFixed(2);
+                (basePrice * quantity)
+                .toFixed(2);
 
         });
 
-    /* Quantity Decrease */
+    /* Decrease Quantity */
 
     document.getElementById("decrease")
         .addEventListener("click", () => {
@@ -63,10 +75,12 @@ detailImage.decoding = "async";
 
                 quantity--;
 
-                quantityText.textContent = quantity;
+                quantityText.textContent =
+                    quantity;
 
                 totalPriceText.textContent =
-                    (basePrice * quantity).toFixed(2);
+                    (basePrice * quantity)
+                    .toFixed(2);
 
             }
 
@@ -74,34 +88,31 @@ detailImage.decoding = "async";
 
     /* Add To Cart */
 
-    /* Add To Cart */
-
-document.getElementById("add-cart-btn")
-    .addEventListener("click", () => {
+    document.getElementById(
+        "add-cart-btn"
+    ).addEventListener("click", () => {
 
         let cart =
-            JSON.parse(localStorage.getItem("cart")) || [];
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
 
         const existingProduct =
-    cart.find(item =>
-        item.id === product.id
-    );
+            cart.find(item =>
+                item.id === product.id
+            );
 
         if (existingProduct) {
 
-            existingProduct.quantity += quantity;
-
-            existingProduct.totalPrice =
-                existingProduct.price *
-                existingProduct.quantity;
+            existingProduct.quantity +=
+                quantity;
 
         } else {
 
-          cart.push({
-    ...product,
-    quantity: quantity,
-    totalPrice: basePrice * quantity
-});
+            cart.push({
+                ...product,
+                quantity: quantity
+            });
 
         }
 
@@ -110,7 +121,19 @@ document.getElementById("add-cart-btn")
             JSON.stringify(cart)
         );
 
-        alert("Product added to cart!");
+        /* Show Popup */
+
+        const popup =
+            document.getElementById(
+                "cart-popup"
+            );
+
+        if (popup) {
+
+            popup.style.display =
+                "block";
+
+        }
 
     });
 
@@ -118,6 +141,39 @@ document.getElementById("add-cart-btn")
 
 .catch(error => {
 
-    console.log("Error loading product:", error);
+    console.log(
+        "Error loading product:",
+        error
+    );
 
 });
+
+/* Popup Buttons */
+
+document.addEventListener(
+    "click",
+    (e) => {
+
+        if (
+            e.target.id ===
+            "continue-shopping"
+        ) {
+
+            document.getElementById(
+                "cart-popup"
+            ).style.display = "none";
+
+        }
+
+        if (
+            e.target.id ===
+            "view-cart"
+        ) {
+
+            window.location.href =
+                "cart.html";
+
+        }
+
+    }
+);
