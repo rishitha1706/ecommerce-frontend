@@ -2,11 +2,21 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>ShopEase</title>
 
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet"
+          href="styles/main.min.css">
+
+    <link rel="preconnect" href="https://fakestoreapi.com">
+
+<link rel="preconnect" href="https://www.gstatic.com">
+
 </head>
 
 <body>
@@ -14,29 +24,106 @@
     <!-- Header -->
 
     <header class="header">
+<div class="logo">
 
-        <div class="logo">
-            <h2>ShopEase</h2>
-        </div>
+    <img src="images/logo.webp"
+         alt="ShopEase Logo"
+         width="170">
+
+</div>
+
+        <!-- Navbar -->
 
         <nav class="navbar">
 
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#products-section">Products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+
+              <li>
+    <a href="index.html">
+        Home
+    </a>
+</li>
+
+<li>
+    <a href="#products-section"
+       id="products-link">
+        Products
+    </a>
+</li> 
+
+                <li>
+                    <a href="#">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+
             </ul>
 
         </nav>
 
+        <!-- Search -->
+
         <div class="search-box">
-            <input type="text" placeholder="Search products...">
+
+            <input type="text"
+                   placeholder="Search products...">
+
         </div>
 
-        <div class="cart">
-            🛒 <span class="cart-count">0</span>
-        </div>
+        <!-- User Section -->
+
+        <div class="user-section">
+
+    <a href="login.html"
+       id="login-btn"
+       class="login-btn">
+
+        Login
+
+    </a>
+
+    <!-- Profile Section -->
+
+    <div class="profile-section">
+
+        <span class="profile-icon">
+            👤
+        </span>
+
+        <span id="user-name"></span>
+
+    </div>
+
+    <button id="logout-btn"
+            class="logout-btn hidden">
+
+        Logout
+
+    </button>
+
+</div>
+
+
+        <!-- Cart -->
+
+        <a href="cart.html"
+           class="cart">
+
+            🛒
+
+            <span class="cart-count">
+                0
+            </span>
+
+        </a>
+
+        <!-- Mobile Menu -->
 
         <div class="menu-toggle">
             ☰
@@ -48,26 +135,43 @@
 
     <section class="hero">
 
-        <h1>Welcome to ShopEase</h1>
+        <h1>
+            Welcome to ShopEase
+        </h1>
 
-        <p>Your One-Stop Online Shopping Destination</p>
+        <p>
+            Your One-Stop Online Shopping Destination
+        </p>
 
-        <button id="shop-now-btn">Shop Now</button>
+        <button id="shop-now-btn">
+
+            Shop Now
+
+        </button>
 
     </section>
 
     <!-- Products Section -->
 
-    <section class="products-section hidden" id="products-section">
+    <section class="products-section hidden"
+             id="products-section">
 
-        <h2>Our Products</h2>
+        <h2>
+            Our Products
+        </h2>
 
-        <div id="product-grid" class="product-grid"></div>
+        <div id="product-grid"
+             class="product-grid">
+
+        </div>
 
     </section>
 
-    <script src="scripts/app.js"></script>
+    <!-- App JS -->
+
+    <script type="module" defer src="./scripts/app.js"></script>
 
 </body>
 
 </html>
+

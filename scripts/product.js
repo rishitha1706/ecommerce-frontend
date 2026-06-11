@@ -21,8 +21,14 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
 
 .then(product => {
 
-    document.getElementById("detail-image").src =
-        product.image;
+   const detailImage =
+    document.getElementById("detail-image");
+
+detailImage.src = product.image;
+
+detailImage.loading = "lazy";
+
+detailImage.decoding = "async";
 
     document.getElementById("detail-title").textContent =
         product.title;
@@ -68,30 +74,45 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
 
     /* Add To Cart */
 
-    document.getElementById("add-cart-btn")
-        .addEventListener("click", () => {
+    /* Add To Cart */
 
-            let cart =
-                JSON.parse(localStorage.getItem("cart")) || [];
+document.getElementById("add-cart-btn")
+    .addEventListener("click", () => {
 
-            cart.push({
-                ...product,
-                quantity: quantity,
-                totalPrice: basePrice * quantity,
-                size:
-                    document.getElementById("size-select").value,
-                color:
-                    document.getElementById("color-select").value
-            });
+        let cart =
+            JSON.parse(localStorage.getItem("cart")) || [];
 
-            localStorage.setItem(
-                "cart",
-                JSON.stringify(cart)
-            );
+        const existingProduct =
+    cart.find(item =>
+        item.id === product.id
+    );
 
-            alert("Product added to cart!");
+        if (existingProduct) {
 
-        });
+            existingProduct.quantity += quantity;
+
+            existingProduct.totalPrice =
+                existingProduct.price *
+                existingProduct.quantity;
+
+        } else {
+
+          cart.push({
+    ...product,
+    quantity: quantity,
+    totalPrice: basePrice * quantity
+});
+
+        }
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        alert("Product added to cart!");
+
+    });
 
 })
 
